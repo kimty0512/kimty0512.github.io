@@ -1,108 +1,103 @@
-const header = document.querySelector("#site-header");
+
+const body = document.body;
 const menuToggle = document.querySelector("#menu-toggle");
 const mainNav = document.querySelector("#main-nav");
-const navLinks = [...document.querySelectorAll(".main-nav a")];
-const backToTop = document.querySelector("#back-to-top");
 const currentYear = document.querySelector("#current-year");
 
-function setHeaderState() {
-  const isScrolled = window.scrollY > 24;
-  header.classList.toggle("is-scrolled", isScrolled);
-  backToTop.classList.toggle("is-visible", window.scrollY > 600);
-}
-
-function closeMenu() {
-  menuToggle.setAttribute("aria-expanded", "false");
-  menuToggle.setAttribute("aria-label", "메뉴 열기");
-  mainNav.classList.remove("is-open");
-  header.classList.remove("menu-active");
-  document.body.classList.remove("menu-open");
-}
-
-function toggleMenu() {
-  const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
-
-  menuToggle.setAttribute("aria-expanded", String(!isOpen));
-  menuToggle.setAttribute("aria-label", isOpen ? "메뉴 열기" : "메뉴 닫기");
-  mainNav.classList.toggle("is-open", !isOpen);
-  header.classList.toggle("menu-active", !isOpen);
-  document.body.classList.toggle("menu-open", !isOpen);
-}
-
-menuToggle.addEventListener("click", toggleMenu);
-
-navLinks.forEach((link) => {
-  link.addEventListener("click", closeMenu);
-});
-
-window.addEventListener("resize", () => {
-  if (window.innerWidth > 1180) {
-    closeMenu();
-  }
-});
-
-window.addEventListener("scroll", setHeaderState, { passive: true });
-setHeaderState();
-
-backToTop.addEventListener("click", () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
+window.addEventListener("DOMContentLoaded", () => {
+  requestAnimationFrame(() => {
+    body.classList.add("is-ready");
   });
 });
 
-currentYear.textContent = new Date().getFullYear();
+if (currentYear) {
+  currentYear.textContent = new Date().getFullYear();
+}
 
+function closeMenu() {
+  if (!menuToggle || !mainNav) return;
+  menuToggle.setAttribute("aria-expanded", "false");
+  menuToggle.setAttribute("aria-label", "Open menu");
+  mainNav.classList.remove("is-open");
+  body.classList.remove("menu-open");
+}
+
+if (menuToggle && mainNav) {
+  menuToggle.addEventListener("click", () => {
+    const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+    menuToggle.setAttribute("aria-expanded", String(!isOpen));
+    menuToggle.setAttribute("aria-label", isOpen ? "Open menu" : "Close menu");
+    mainNav.classList.toggle("is-open", !isOpen);
+    body.classList.toggle("menu-open", !isOpen);
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 1080) closeMenu();
+  });
+}
+
+/* Fade the current page out before opening another internal HTML page. */
+document.addEventListener("click", (event) => {
+  const link = event.target.closest("a");
+  if (!link) return;
+
+  const href = link.getAttribute("href");
+  const target = link.getAttribute("target");
+
+  if (
+    !href ||
+    href.startsWith("#") ||
+    href.startsWith("mailto:") ||
+    href.startsWith("tel:") ||
+    href.startsWith("javascript:") ||
+    target === "_blank" ||
+    event.ctrlKey ||
+    event.metaKey ||
+    event.shiftKey ||
+    event.altKey
+  ) {
+    return;
+  }
+
+  const url = new URL(link.href, window.location.href);
+
+  if (url.origin !== window.location.origin) return;
+  if (!url.pathname.endsWith(".html") && url.pathname !== "/") return;
+
+  event.preventDefault();
+  closeMenu();
+  body.classList.add("is-leaving");
+
+  window.setTimeout(() => {
+    window.location.href = url.href;
+  }, 250);
+});
+
+/* Reveal lower-page content when it enters the viewport. */
 const revealElements = document.querySelectorAll(".reveal");
 
 if ("IntersectionObserver" in window) {
-  const revealObserver = new IntersectionObserver(
-    (entries, observer) => {
+  const observer = new IntersectionObserver(
+    (entries, currentObserver) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
-
         entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
+        currentObserver.unobserve(entry.target);
       });
     },
     {
       threshold: 0.12,
-      rootMargin: "0px 0px -35px",
+      rootMargin: "0px 0px -30px",
     }
   );
 
-  revealElements.forEach((element) => {
-    revealObserver.observe(element);
-  });
+  revealElements.forEach((element) => observer.observe(element));
 } else {
-  revealElements.forEach((element) => {
-    element.classList.add("is-visible");
-  });
+  revealElements.forEach((element) => element.classList.add("is-visible"));
 }
 
-const sections = [...document.querySelectorAll("main section[id]")];
-
-if ("IntersectionObserver" in window) {
-  const sectionObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-
-        const currentId = entry.target.id;
-
-        navLinks.forEach((link) => {
-          const targetId = link.getAttribute("href").replace("#", "");
-          link.classList.toggle("is-active", targetId === currentId);
-        });
-      });
-    },
-    {
-      rootMargin: "-35% 0px -55%",
-      threshold: 0,
-    }
-  );
-
-  sections.forEach((section) => {
-    sectionObserver.observe(section);
-  });
-}
+/* Prevent a cached page from remaining faded when the Back button is used. */
+window.addEventListener("pageshow", () => {
+  body.classList.remove("is-leaving");
+  body.classList.add("is-ready");
+});
