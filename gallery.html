@@ -1,114 +1,34 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Research and laboratory gallery of SB Lab.">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Conference, research training, and lab news gallery from SB LAB.">
   <title>Gallery | SB LAB</title>
-
-  <script>document.documentElement.classList.add("js");</script>
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
-
 <body data-page="gallery">
-  <a class="skip-link" href="#main-content">Skip to content</a>
-  <div class="page-transition" aria-hidden="true"></div>
-
-  
-    <header class="site-header">
-      <div class="header-inner">
-        <a class="brand page-link" href="index.html" aria-label="SB LAB home">
-          <img src="assets/sb-lab-mark.svg" alt="" width="44" height="44">
-          <span class="brand-text">
-            <strong>SB LAB</strong>
-            <small>Neuronal Resilience & Aging</small>
-          </span>
-        </a>
-
-        <button
-          class="menu-toggle"
-          id="menu-toggle"
-          type="button"
-          aria-label="Open menu"
-          aria-expanded="false"
-          aria-controls="main-nav"
-        >
-          <span></span><span></span><span></span>
-        </button>
-
-        <nav class="main-nav" id="main-nav" aria-label="Main navigation">
-          <a href="index.html">Home</a><a href="research.html">Research</a><a href="projects.html">Projects</a><a href="people.html">People</a><a href="publications.html">Publications</a><a href="gallery.html" class="is-active" aria-current="page">Gallery</a><a href="contact.html">Contact</a>
-        </nav>
-      </div>
-    </header>
-    
-
+  <div id="site-header"></div>
   <main id="main-content">
-    
-<section class="page-hero page-hero-gallery">
-  <div class="container page-title intro-sequence">
-    <p class="eyebrow intro-item">Gallery</p>
-    <h1 class="intro-item">Life and research at SB Lab</h1>
-    <p class="intro-item">
-      Add laboratory, conference, training, celebration, and group-event
-      photographs to this page.
-    </p>
-  </div>
-</section>
-
-<section class="content-section">
-  <div class="container gallery-page-grid">
-    <figure class="gallery-tile gallery-tile-wide reveal">
-      <img src="assets/gallery-1.svg" alt="Conference photograph placeholder">
-      <figcaption><span>Conference</span><strong>Scientific meetings and invited talks</strong></figcaption>
-    </figure>
-
-    <figure class="gallery-tile reveal">
-      <img src="assets/gallery-2.svg" alt="Research photograph placeholder">
-      <figcaption><span>Research</span><strong>Experiments and training</strong></figcaption>
-    </figure>
-
-    <figure class="gallery-tile reveal">
-      <img src="assets/gallery-3.svg" alt="Lab event photograph placeholder">
-      <figcaption><span>Lab News</span><strong>Events and celebrations</strong></figcaption>
-    </figure>
-
-    <figure class="gallery-tile reveal">
-      <img src="assets/gallery-2.svg" alt="Research photograph placeholder">
-      <figcaption><span>Workshop</span><strong>Technical training and collaboration</strong></figcaption>
-    </figure>
-
-    <figure class="gallery-tile gallery-tile-wide reveal">
-      <img src="assets/gallery-1.svg" alt="Group photograph placeholder">
-      <figcaption><span>People</span><strong>Members of SB Lab</strong></figcaption>
-    </figure>
-  </div>
-</section>
-
-  </main>
-
-  
-    <footer class="site-footer">
-      <div class="container footer-grid">
-        <a class="footer-brand page-link" href="index.html">
-          <img src="assets/sb-lab-mark.svg" alt="" width="52" height="52">
-          <span>
-            <strong>SB LAB</strong>
-            <small>Lab of Neurodegenerative Diseases and Aging</small>
-          </span>
-        </a>
-
-        <p>
-          Department of Brain Sciences, DGIST<br>
-          Daegu, Republic of Korea
-        </p>
-
-        <p class="copyright">
-          © <span id="current-year"></span> SB LAB
-        </p>
+    <section class="sub-hero"><div class="sub-hero-inner"><p class="breadcrumb"><a href="index.html">⌂</a> &nbsp;&gt;&nbsp; Gallery</p><h1>Gallery</h1></div></section>
+    <section class="page-content">
+      <div class="container">
+        <div class="filter-bar" data-filter-group=".gallery-card"><button class="filter-button is-active" data-filter="all" type="button">All</button><button class="filter-button" data-filter="conference" type="button">Conference</button><button class="filter-button" data-filter="training" type="button">Research Training</button><button class="filter-button" data-filter="news" type="button">SB Lab News</button></div>
+        <div class="card-grid">
+          <article class="visual-card gallery-card reveal" data-category="conference"><div class="visual-card-image"><img src="assets/site/gallery-1.jpg" alt="FAOBMB 2025 invited talk"></div><div class="visual-card-body"><small>Conference</small><h3>Invited talk @ FAOBMB 2025</h3><p>May 21–23, 2025 · BEXCO</p></div></article>
+          <article class="visual-card gallery-card reveal" data-category="conference"><div class="visual-card-image"><img src="assets/site/gallery-2.jpg" alt="FAOBMB Korea-Australia symposium"></div><div class="visual-card-body"><small>Conference</small><h3>FAOBMB Korea–Australia Special Symposium</h3><p>International scientific exchange and invited presentation</p></div></article>
+          <article class="visual-card gallery-card reveal" data-category="conference"><div class="visual-card-image"><img src="assets/site/gallery-3.jpg" alt="A3 foresight program in Daejeon"></div><div class="visual-card-body"><small>Conference</small><h3>A3 Foresight Program in Daejeon</h3><p>March 7–9, 2025 · Student presentation by Min Gu Jo</p></div></article>
+          <article class="visual-card gallery-card reveal" data-category="conference"><div class="visual-card-image"><img src="assets/site/gallery-4.jpg" alt="KPS 2024 invited talk"></div><div class="visual-card-body"><small>Conference</small><h3>KPS 2024 invited talk</h3><p>October 31, 2024 · Korea University</p></div></article>
+          <article class="visual-card gallery-card reveal" data-category="conference"><div class="visual-card-image"><img src="assets/site/gallery-5.jpg" alt="Australian-Korean joint symposium"></div><div class="visual-card-body"><small>Conference</small><h3>Australian–Korean Joint Symposium</h3><p>Invited joint symposium talk</p></div></article>
+          <article class="visual-card gallery-card reveal" data-category="news"><div class="visual-card-image"><img src="assets/site/gallery-6.jpg" alt="Jaeho Cho presentation award"></div><div class="visual-card-body"><small>SB Lab News</small><h3>Dr. Jaeho Cho wins Best Presentation Award</h3><p>Korean Society for Biology of Aging</p></div></article>
+          <article class="visual-card gallery-card reveal" data-category="conference"><div class="visual-card-image"><img src="assets/site/gallery-7.jpg" alt="Korean Drosophila Society meeting"></div><div class="visual-card-body"><small>Conference</small><h3>Korean Drosophila Society Meeting</h3><p>June 25–27, 2024</p></div></article>
+          <article class="visual-card gallery-card reveal" data-category="training"><div class="visual-card-image"><img src="assets/site/gallery-8.jpg" alt="A3 foresight program in Osaka"></div><div class="visual-card-body"><small>Research Training</small><h3>A3 Foresight Program in Osaka</h3><p>January 10–12, 2024</p></div></article>
+          <article class="visual-card gallery-card reveal" data-category="conference"><div class="visual-card-image"><img src="assets/site/gallery-9.jpg" alt="KSBMB conference"></div><div class="visual-card-body"><small>Conference</small><h3>2023 KSBMB at BEXCO, Busan</h3><p>May 10–13, 2023</p></div></article>
+        </div>
       </div>
-    </footer>
-    
+    </section>
+  </main>
+  <div id="site-footer"></div>
 </body>
 </html>

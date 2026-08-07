@@ -1,120 +1,99 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="SB Lab studies neuronal resilience, aging, and neurodegenerative disease.">
-  <title>Home | SB LAB</title>
-
-  <script>document.documentElement.classList.add("js");</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SB LAB at DGIST studies the cellular and molecular basis of neurodegenerative diseases and aging.">
+  <title>SB LAB | DGIST</title>
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
-
 <body data-page="home">
-  <a class="skip-link" href="#main-content">Skip to content</a>
-  <div class="page-transition" aria-hidden="true"></div>
-
-  
-    <header class="site-header">
-      <div class="header-inner">
-        <a class="brand page-link" href="index.html" aria-label="SB LAB home">
-          <img src="assets/sb-lab-mark.svg" alt="" width="44" height="44">
-          <span class="brand-text">
-            <strong>SB LAB</strong>
-            <small>Neuronal Resilience & Aging</small>
-          </span>
-        </a>
-
-        <button
-          class="menu-toggle"
-          id="menu-toggle"
-          type="button"
-          aria-label="Open menu"
-          aria-expanded="false"
-          aria-controls="main-nav"
-        >
-          <span></span><span></span><span></span>
-        </button>
-
-        <nav class="main-nav" id="main-nav" aria-label="Main navigation">
-          <a href="index.html" class="is-active" aria-current="page">Home</a><a href="research.html">Research</a><a href="projects.html">Projects</a><a href="people.html">People</a><a href="publications.html">Publications</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a>
-        </nav>
-      </div>
-    </header>
-    
-
+  <div id="site-header"></div>
   <main id="main-content">
-    
-<section class="home-hero">
-  <div class="hero-art" aria-hidden="true">
-    <span class="hero-orb hero-orb-one"></span>
-    <span class="hero-orb hero-orb-two"></span>
-    <span class="hero-grid"></span>
-  </div>
-
-  <div class="container home-hero-grid">
-    <div class="hero-copy intro-sequence">
-      <p class="eyebrow intro-item">DGIST · Department of Brain Sciences</p>
-
-      <h1 class="intro-item">
-        <span>SB LAB</span>
-        Lab of Neurodegenerative<br>
-        Diseases and Aging
-      </h1>
-
-      <p class="hero-description intro-item">
-        We investigate how neurons maintain their function during aging,
-        cellular stress, and neurodegenerative disease.
-      </p>
-
-      <div class="hero-actions intro-item">
-        <a class="button button-primary page-link" href="research.html">
-          Explore Our Research
-        </a>
-        <a class="button button-outline page-link" href="contact.html">
-          Join Our Lab
-        </a>
+    <section class="home-hero" aria-label="SB LAB introduction">
+      <div class="hero-slide is-active" style="background-image:url('assets/site/hero-1.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('assets/site/hero-2.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('assets/site/hero-3.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('assets/site/hero-4.jpg')"></div>
+      <div class="container home-hero-content">
+        <div class="hero-copy">
+          <h1>SB LAB</h1>
+          <h2>Lab of Neurodegenerative diseases and Aging</h2>
+          <p>The primary goal of our research is to reveal<br>the cellular and molecular basis of neurodegenerative disease</p>
+        </div>
+        <div class="hero-pager" role="tablist" aria-label="Hero slides">
+          <button class="hero-dot is-active" role="tab" aria-selected="true">01</button>
+          <button class="hero-dot" role="tab" aria-selected="false">02</button>
+          <button class="hero-dot" role="tab" aria-selected="false">03</button>
+          <button class="hero-dot" role="tab" aria-selected="false">04</button>
+        </div>
       </div>
-    </div>
+      <a class="scroll-cue" href="#research-home">Scroll Down</a>
+    </section>
 
-    <div class="hero-emblem intro-item" aria-hidden="true">
-      <img src="assets/research-neuron.svg" alt="">
-    </div>
-  </div>
+    <section class="section" id="research-home">
+      <div class="container">
+        <div class="section-heading reveal">
+          <h2>Research</h2>
+          <a class="view-more" href="research.html">View More</a>
+        </div>
+        <div class="home-research-grid">
+          <div class="home-research-image reveal">
+            <img src="assets/site/home-research.jpg" alt="Illuminated human brain illustration">
+          </div>
+          <div class="home-research-copy reveal">
+            <h3>The primary goal of our research is to reveal the cellular and molecular basis of neurodegenerative diseases.</h3>
+            <p>Notably, many neurodegenerative diseases are associated with clear and specific neuronal abnormalities during early stages, before massive neuronal cell death.</p>
+            <p>Our approach provides clues to understanding these diseases and contributes to future effective treatments.</p>
+            <a class="view-more" href="research.html">Our Research</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <div class="home-bottom container intro-item">
-    <div>
-      <span>Current focus</span>
-      <strong>Neuronal resilience · Proteostasis · Neurodegeneration</strong>
-    </div>
-    <a class="page-link" href="projects.html">View projects <span>→</span></a>
-  </div>
-</section>
+    <section class="project-spotlight">
+      <div class="container">
+        <div class="section-heading reveal">
+          <h2>Project</h2>
+          <a class="view-more" href="projects.html">View More</a>
+        </div>
+        <div class="project-strip">
+          <a class="project-mini reveal" href="projects.html#ion-rna">
+            <div class="project-mini-image"><img src="assets/site/project-4.jpg" alt="Ion and RNA homeostasis research figure"></div>
+            <h3>Ion &amp; RNA Homeostasis required for neuronal maintenance</h3>
+            <time datetime="2026-04-14">◷ 2026-04-14</time>
+          </a>
+          <a class="project-mini reveal" href="projects.html#protein-dynamics">
+            <div class="project-mini-image"><img src="assets/site/project-1.jpg" alt="Protein dynamics research figure"></div>
+            <h3>Protein dynamics-based control of protein toxicity</h3>
+            <time datetime="2026-04-14">◷ 2026-04-14</time>
+          </a>
+          <a class="project-mini reveal" href="projects.html#cellular-basis">
+            <div class="project-mini-image"><img src="assets/site/project-2.jpg" alt="Neuronal mitochondria research figure"></div>
+            <h3>Cellular basis of various neurodegenerative diseases</h3>
+            <time datetime="2026-04-14">◷ 2026-04-14</time>
+          </a>
+        </div>
+      </div>
+    </section>
 
+    <section class="section home-publications">
+      <div class="container">
+        <div class="section-heading reveal">
+          <h2>Publications</h2>
+          <a class="view-more" href="publications.html">View More</a>
+        </div>
+        <div class="publication-preview">
+          <a class="reveal" href="https://doi.org/10.1038/s41467-025-56030-6" target="_blank" rel="noreferrer"><time>2025-01-17</time><strong>Engineering a membrane protein chaperone to ameliorate the proteotoxicity of mutant huntingtin.</strong><b>+</b></a>
+          <a class="reveal" href="https://doi.org/10.1016/j.mocell.2024.100139" target="_blank" rel="noreferrer"><time>2024-11-12</time><strong>A brief guide to analyzing expression quantitative trait loci.</strong><b>+</b></a>
+          <a class="reveal" href="https://doi.org/10.3390/cells13110955" target="_blank" rel="noreferrer"><time>2024-05-31</time><strong>Structural dynamics analysis of USP14 activation by AKT-mediated phosphorylation.</strong><b>+</b></a>
+          <a class="reveal" href="https://pubs.rsc.org/en/content/articlelanding/2024/an/d3an01670f" target="_blank" rel="noreferrer"><time>2024-01-29</time><strong>Monitoring lipid alterations in Drosophila heads in an amyotrophic lateral sclerosis model.</strong><b>+</b></a>
+          <a class="reveal" href="https://doi.org/10.1038/s12276-024-01169-3" target="_blank" rel="noreferrer"><time>2024-02-19</time><strong>Baf-mediated transcriptional regulation of teashirt is essential for neural progenitor cell lineages.</strong><b>+</b></a>
+        </div>
+      </div>
+    </section>
   </main>
-
-  
-    <footer class="site-footer">
-      <div class="container footer-grid">
-        <a class="footer-brand page-link" href="index.html">
-          <img src="assets/sb-lab-mark.svg" alt="" width="52" height="52">
-          <span>
-            <strong>SB LAB</strong>
-            <small>Lab of Neurodegenerative Diseases and Aging</small>
-          </span>
-        </a>
-
-        <p>
-          Department of Brain Sciences, DGIST<br>
-          Daegu, Republic of Korea
-        </p>
-
-        <p class="copyright">
-          © <span id="current-year"></span> SB LAB
-        </p>
-      </div>
-    </footer>
-    
+  <div id="site-footer"></div>
 </body>
 </html>
